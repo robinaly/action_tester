@@ -11,6 +11,9 @@ python = "^3.10"
 black = "^22.10.0"
 
 
+[tool.poetry.group.dev.dependencies]
+python-kacl = "^0.2.30"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
