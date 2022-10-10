@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/robinaly/action_tester/tree/HEAD)
+
+[Full Changelog](https://github.com/robinaly/action_tester/compare/0.1.2...HEAD)
+
+**Closed issues:**
+
+- Test [\#1](https://github.com/robinaly/action_tester/issues/1)
+
+## [0.1.2](https://github.com/robinaly/action_tester/tree/0.1.2) (2022-10-10)
+
+[Full Changelog](https://github.com/robinaly/action_tester/compare/0.1.1...0.1.2)
+
 ## [0.1.1](https://github.com/robinaly/action_tester/tree/0.1.1) (2022-10-10)
 
 [Full Changelog](https://github.com/robinaly/action_tester/compare/ec6c06f3b563aa3b884913fb86e0320113f0d534...0.1.1)
