@@ -34,18 +34,19 @@ jobs:
       #     body="${body//$'\n'/'%0A'}"
       #     body="${body//$'\r'/'%0D'}"
       #     echo ::set-output name="body::$body"
-      - name: "✏️ Generate release changelog"
+      - name: "Update release changelog"
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}           
           futureRelease: '${{ steps.updated_version.outputs.version }}'
-      - name: "✏️ Generate newest changelog"
+      - name: "Calculate newest changelog"
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         id: latest_changes
         with:
           token: ${{ secrets.GITHUB_TOKEN }}           
           sinceTag: '${{ steps.updated_version.outputs.old_version }}'          
-          futureRelease: '${{ steps.updated_version.outputs.version }}'          
+          futureRelease: '${{ steps.updated_version.outputs.version }}'
+          output: test.md
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
