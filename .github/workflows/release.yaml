@@ -39,6 +39,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}           
           futureRelease: '${{ steps.updated_version.outputs.version }}'
+      - name: "✏️ Generate newest changelog"
+        uses: heinrichreimer/github-changelog-generator-action@v2.3
+        id: latest_changes
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}           
+          sinceTag: '${{ steps.updated_version.outputs.old_version }}'          
+          futureRelease: '${{ steps.updated_version.outputs.version }}'          
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
         with:
@@ -55,5 +62,5 @@ jobs:
         with:
           tag_name: ${{ steps.updated_version.outputs.version }}
           release_name: Release ${{ steps.updated_version.outputs.version }}
-          body: ${{ steps.changelog.outputs.body }}
+          body: ${{ steps.latest_changes.outputs.changelog }}
           draft: true
