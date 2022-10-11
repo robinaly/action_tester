@@ -39,6 +39,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}           
           futureRelease: '${{ steps.updated_version.outputs.version }}'
+          stripGeneratorNotice: true
       - name: "Calculate newest changelog"
         uses: heinrichreimer/github-changelog-generator-action@v2.3
         id: latest_changes
@@ -46,6 +47,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}           
           sinceTag: '${{ steps.updated_version.outputs.old_version }}'          
           futureRelease: '${{ steps.updated_version.outputs.version }}'
+          stripGeneratorNotice: true
           output: test.md
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
