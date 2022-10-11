@@ -18,9 +18,11 @@ jobs:
         id: updated_version
         shell: bash
         run: |
+          old_version=$(poetry version --short)
           poetry version ${{ github.event.inputs.version }}
           version=$(poetry version --short)
           echo ::set-output name="version::$version"
+          echo ::set-output name="old_version::$old_version"
       # - name: Update changelog
       #   id: changelog
       #   shell: bash
